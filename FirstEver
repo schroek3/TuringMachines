@@ -1,0 +1,42 @@
+// Ken Schroeder
+// 03.27.15 - Bolt Bus from PDX to SEA
+// Turing Machine: First Ever Machine
+// --First Ever Turing Machine Theorized
+// --Print 0 <space> 1 infinity times
+// --Note that the machine does not terminate...
+// uses this website: https://martinugarte.com/turingmachine/
+
+// -------Config elements
+name: FirstEverTM
+init: start
+accept: end
+
+// Synatx
+// --[current_state],[current_symbol]
+// --[new_state],[new_symbol], [> or < or -]
+// --< move left
+// --> move right
+// -- <-> stay
+// --use underscore for blank cells
+// --States and symbols are case-sensitive
+
+// -------Transitions:
+start,_
+spaceOne,0,>
+
+spaceOne,_
+placeOne,_,>
+
+placeOne,_
+spaceZero,1,>
+
+spaceZero,_
+placeZero,_,>
+
+placeZero,_
+spaceOne,0,>
+
+
+
+// Load your code and click COMPILE.
+// or load an example (top-right).
