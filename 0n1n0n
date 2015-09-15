@@ -1,0 +1,99 @@
+// Ken Schroeder
+// 03.27.15 - On bus from PDX to SEA
+// Turing Machine <soving the problem of 0^n1^n0^n, n>0>
+// --Example: 001100 is 0^2 1^2 0^2
+// --Example: 0100 is 0^1 1^1 0^2 and would be rejected
+// problem from: http://courses.cs.washington.edu/courses/cse322/10sp/Slides7.pdf
+// uses this website: https://martinugarte.com/turingmachine/
+
+// -------Config elements
+name: UTMs
+init: start
+accept: end
+
+// Syntax:
+// --[current_state],[current_symbol]
+// --[new_state],[new_symbol], [> or < or -]
+// --< move left
+// --> move right
+// -- <-> stay
+// --use underscore for blank cells
+// --States and symbols are case-sensitive
+
+// -------Transitions
+// Start off by checking that the problem is of the form 00*11*00*
+start,0
+checkForm1,x,>
+
+checkForm1,0
+checkForm1,0,>
+
+checkForm1,1
+checkForm0,1,>
+
+checkForm0,1
+checkForm0,1,>
+
+checkForm0,0
+findEnd,0,>
+
+findEnd,0
+findEnd,0,>
+
+findEnd,_
+backToStart,_,<
+
+// now, confirm that it is 0^n 1^n 0^n
+backToStart,0
+backToStart,0, <
+
+backToStart,1
+backToStart,1,<
+
+backToStart,x
+needAOne,_,>
+
+needAOne,0
+needAOne,0,>
+
+needAOne,1
+needAZero,_,>
+
+needAOne,x
+needAOne,x,>
+
+needAZero,1
+needAZero,1,>
+
+needAZero,x
+needAZero,x,>
+
+needAZero,0
+xOut1,x,<
+
+xOut1,x
+xOut1,x,<
+
+xOut1,1
+xOut1,1,<
+
+xOut1,_
+xOut0,x,<
+
+xOut0,0
+xOut0,0,<
+
+xOut0,x
+xOut0,x,<
+
+xOut0,_
+anyMore,x,>
+
+anyMore,x
+anyMore,x,>
+
+anyMore,_
+end,_,-
+
+anyMore,0
+needAOne,_,>
