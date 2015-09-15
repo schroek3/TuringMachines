@@ -1,0 +1,83 @@
+// Ken Schroeder
+// March 2015
+// Turing Machine, make a number string a palindrome
+// --example: take string 0010 and return 0010 0100
+// uses this website: https://martinugarte.com/turingmachine/
+
+// -------Config elements
+name: palindrome
+init: start
+accept: end
+
+// Syntax:
+// --[current_state],[current_symbol]
+// --[new_state],[new_symbol], [> or < or -]
+// --< move left
+// --> move right
+// -- <-> stay
+// --use underscore for blank cells
+// --States and symbols are case-sensitive
+
+//-------Transitions:
+
+start,1
+findEnd,1,>
+
+findEnd,1
+findEnd,1,>
+
+findEnd,0
+findEnd,0,>
+
+findEnd,_
+goBack,_,<
+
+goBack,1
+appendOne,_,>
+
+goBack,0
+appendZero,_,>
+
+goBack,_
+end,_,-
+
+appendOne,1
+appendOne,1,>
+
+appendOne,0
+appendOne,0,>
+
+appendOne,_
+replaceOne,1,<
+
+replaceOne,1
+replaceOne,1,<
+
+replaceOne,0
+replaceOne,0,<
+
+replaceOne,_
+goBack,1,<
+
+appendZero,0
+appendZero,0,>
+
+appendZero,1
+appendZero,1,>
+
+appendZero,_
+replaceZero,0,<
+
+replaceZero,1
+replaceZero,1,<
+
+replaceZero,0
+replaceZero,0,<
+
+replaceZero,_
+goBack,0,<
+
+
+
+
+
