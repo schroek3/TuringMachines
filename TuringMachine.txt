@@ -1,0 +1,85 @@
+//Ken Schroeder
+//CSS502
+//March 3, 2015
+//Turing Machine
+//Using https://martinugarte.com/turingmachine/
+
+//LOAD AN EXAMPLE TO TRY -->
+//then load an input and click play
+
+//Syntax:
+
+//-------Config elements
+name: double ones
+init: start
+accept: empty
+
+//-------Transitions:
+start,1
+findPrintSpot,1,>
+
+findPrintSpot,1
+findPrintSpot,1,>
+
+findPrintSpot,_
+placeFirstOne,_,>
+
+placeFirstOne,_
+printFirstLeft,1,>
+
+printFirstLeft,_
+printRight,_,>
+
+printRight,1
+printRight,1,>
+
+printRight,_
+backToCenter,1,<
+
+backToCenter,1
+backToCenter,1,<
+
+backToCenter,_
+leftHandSide,_,<
+
+leftHandSide,1
+leftHandSide,1,<
+
+leftHandSide,_
+backToOne,_,<
+
+backToOne,_
+backToOne,_,<
+
+backToOne,1
+empty,_,<
+
+empty,1
+findLeftHand,1,>
+
+findLeftHand,_
+findLeftHand,_,>
+
+findLeftHand,1
+printOneLeft,1,<
+
+
+printOneLeft,_
+findSpace,1,>
+
+findSpace,1
+findSpace,1,>
+
+findSpace,_
+printRight,_,>
+
+// < move left
+// > move right
+// - stay
+// use underscore for blank cells
+
+//States and symbols are case-sensitive
+
+//Load your code and click COMPILE.
+//or load an example (top-right).
+

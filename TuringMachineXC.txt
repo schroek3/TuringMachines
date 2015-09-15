@@ -1,0 +1,118 @@
+//Turing Machine XC
+//Ken Schroeder
+//CSS502
+//March 3, 2015
+//Turing Machine
+//Using https://martinugarte.com/turingmachine/
+
+
+//Syntax:
+
+//-------Config elements
+name: palindromeIt
+init: start
+accept: empty
+
+//-------Transitions:
+start,1
+lastOne,1,>
+
+start,0
+lastZero,0,>
+
+lastOne,1
+lastOne,1,>
+
+lastOne,0
+lastZero,0,>
+
+lastOne,_
+leftOne,_,>
+
+leftOne,_
+rightOne,1,>
+
+leftOne,1
+leftOne,1,<
+
+leftOne,0
+leftOne,1,<
+
+rightOne,0
+rightOne,0,>
+
+rightOne,1
+rightOne,1,>
+
+rightOne,_
+backToEnd,1,<
+
+lastZero,1
+lastOne,1,>
+
+lastZero,0
+lastZero,0,>
+
+lastZero,_
+leftZero,_,>
+
+leftZero,_
+rightZero,0,>
+
+leftZero,1
+leftZero,1,<
+
+leftZero,0
+leftZero,0,<
+
+rightZero,0
+rightZero,0,>
+
+rightZero,1
+rightZero,1,>
+
+rightZero,_
+backToEnd,0,<
+
+backToEnd,1
+backToEnd,1,<
+
+backToEnd,0
+backToEnd,0,<
+
+backToEnd,_
+lookForEnd,_,<
+
+lookForEnd,1
+empty,_,<
+
+lookForEnd,0
+empty,_,<
+
+empty,1
+goRightOne,1,>
+
+empty,0
+goRightZero,0,>
+
+goRightOne,_
+leftOne,_,>
+
+goRightZero,_
+leftZero,_,>
+
+
+
+
+
+
+
+// < move left
+// > move right
+// - stay
+// use underscore for blank cells
+
+//States and symbols are case-sensitive
+
+//Load your code and click COMPILE.
+//or load an example (top-right).
